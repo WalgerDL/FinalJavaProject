@@ -19,6 +19,10 @@ class UserID {
 
         private String [] cardData= {getNumberCard(),getDate(),getPwd()};
 
+        public UserID (){
+
+        }
+
 
 
 
