@@ -6,7 +6,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-class UserID {
+public class UserID {
+
+
 
         UserID userID = new UserID();
         PANofCard paNofCard = new PANofCard();
@@ -17,11 +19,18 @@ class UserID {
         private String date=expDate.getExpDate();
         private String pwd=password.getPwd();
 
+
+
+         String[] getCardData() {
+                return cardData;
+        }
+
         private String [] cardData= {getNumberCard(),getDate(),getPwd()};
 
         public UserID (){
 
         }
+
 
 
 
