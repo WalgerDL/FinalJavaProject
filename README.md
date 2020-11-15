@@ -22,8 +22,8 @@ atm package:
 Получение данных и вывод на экран(DisplayData) // придётся разделить?
 
 processingServer package:
-Сервер(ProcessingServer) // enum?
-
+Сервер(ProcessingServer_enum) // enum?
+      (ProcessingServer)
 
 
 
