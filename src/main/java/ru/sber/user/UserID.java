@@ -21,11 +21,13 @@ public class UserID {
 
 
 
-         String[] getCardData() {
-                return cardData;
-        }
 
-        private String [] cardData= {getNumberCard(),getDate(),getPwd()};
+//
+//         String[] getCardData() {
+//                return cardData;
+//        }
+//
+//        private String [] cardData= {getNumberCard(),getDate(),getPwd()};
 
         public UserID (){
 
