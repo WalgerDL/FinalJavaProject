@@ -68,6 +68,7 @@ public class ProcessingServer {      //Типа процесснговый се�
         findBalance.put(CARDn,randomBalance);
 
         accountBalance=findBalance.get(inputCard);
+        //todo:убрать inputCard. Сделать запрос из TransferData, после того, как будет сделано поле
 
   //  return accountBalance;
 }
