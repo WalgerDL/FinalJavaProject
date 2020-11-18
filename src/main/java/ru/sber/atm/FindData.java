@@ -6,16 +6,16 @@ import ru.sber.processingServer.ProcessingServer;
 
 @Getter
 @Setter
-public class FindData {
+class FindData {
 
-    FindData findData=new FindData();
-    ProcessingServer processingServer=new ProcessingServer();
-
-    private int balanceOfCard;
-
-    private void BalanceOfCard(){
-        balanceOfCard= processingServer.getAccountBalance();
-
-    }
-
+//    FindData findData=new FindData();
+//    ProcessingServer processingServer=new ProcessingServer();
+//
+//    private int balanceOfCard;
+//
+//    private void BalanceOfCard(){
+//        balanceOfCard= processingServer.getAccountBalance();
+//
+//    }
+//
 }

@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-class Password {
+public class Password {
 
     private String pwd="1234";
 

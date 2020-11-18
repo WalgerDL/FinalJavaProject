@@ -2,7 +2,9 @@ package ru.sber.processingServer;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.sber.user.UserID;
+import ru.sber.atm.TransferData;
+import ru.sber.user.PANofCard;
+import ru.sber.user.Password;
 
 import java.util.HashMap;
 
@@ -10,8 +12,11 @@ import java.util.HashMap;
 @Getter
 @Setter
 public class ProcessingServer {      //Типа процесснговый сервер
+
     ProcessingServer processingServer=new ProcessingServer();
-    UserID userID = new UserID();
+    TransferData transferData=new TransferData();
+    PANofCard paNofCard=new PANofCard();
+    Password password=new Password();
 
     private final String CARD0="4276000011110777";
     private final String CARD1="5469000022220888";
@@ -25,13 +30,15 @@ public class ProcessingServer {      //Типа процесснговый се�
     private final String PWD3="8520";
     private final String PWDn="0000";
 
-    private int randomBalance = (int) (Math.random()*150000);
+    private int randomBalance = 100;//(int) (Math.random()*150000);
 
     private int accountBalance;
 
-    private String inputCard=userID.getNumberCard();
-    private String inputExp=userID.getDate();
-    private String inputPwd=userID.getPwd();
+//    private String inputCard=userID.getNumberCard();
+//    private String inputExp=userID.getDate();
+//    private String inputPwd=userID.getPwd();
+
+    private String verifiedInputCard=transferData.getVerifiedCard();
 
 //    private boolean Verification(boolean verification){
 //    HashMap <String, String> verify= new HashMap<>();
@@ -67,17 +74,17 @@ public class ProcessingServer {      //Типа процесснговый се�
         findBalance.put(CARD3,randomBalance);
         findBalance.put(CARDn,randomBalance);
 
-        accountBalance=findBalance.get(inputCard);
+        accountBalance=findBalance.get(verifiedInputCard);
         //todo:убрать inputCard. Сделать запрос из TransferData, после того, как будет сделано поле
 
   //  return accountBalance;
 }
 
 
-    public ProcessingServer(ProcessingServer processingServer) {
-            this.processingServer = processingServer;
-
-        }
+//    public ProcessingServer(ProcessingServer processingServer) {
+//            this.processingServer = processingServer;
+//
+//        }
 
 
 

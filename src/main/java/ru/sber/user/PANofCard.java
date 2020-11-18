@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-class PANofCard{
+public class PANofCard{
 
     private String panCard = "4276000011110777";
 

@@ -3,25 +3,28 @@ package ru.sber.atm;
 import lombok.Getter;
 import lombok.Setter;
 import ru.sber.processingServer.ProcessingServer;
-import ru.sber.user.UserID;
+import ru.sber.user.PANofCard;
+import ru.sber.user.Password;
+
 
 import java.util.HashMap;
 
 @Getter
 @Setter
-class ClientID {
+public class ClientID {
+
 
     ClientID clientID=new ClientID();
     ProcessingServer processingServer=new ProcessingServer();
-    UserID userID=new UserID();
+    PANofCard paNofCard=new PANofCard();
+    Password password=new Password();
 
-    private String inputCard=userID.getNumberCard();
-    private String inputPwd=userID.getPwd();
+    private String inputCard=paNofCard.getPanCard();
+    private String inputPwd=password.getPwd();
 
-    boolean verification;
+    private boolean verificationData;
 
     private void Verification() {
-
 
         HashMap<String, String> verify = new HashMap<>();
         verify.put(processingServer.getCARD0(), processingServer.getPWD0());
@@ -30,6 +33,6 @@ class ClientID {
         verify.put(processingServer.getCARD3(), processingServer.getPWD3());
         verify.put(processingServer.getCARDn(), processingServer.getPWDn());
 
-        verification= verify.containsKey(inputCard) && verify.containsValue(inputPwd);
+        verificationData= verify.containsKey(inputCard) && verify.containsValue(inputPwd);
     }
 }
