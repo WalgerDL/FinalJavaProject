@@ -12,8 +12,6 @@ public class TransferData {
 
     TransferData transferData=new TransferData();
     ClientID clientID=new ClientID();
-   // KeyBoard keyBoard=new KeyBoard();
-   // FindData findData=new FindData();
     PANofCard paNofCard=new PANofCard();
     Password password=new Password();
 
