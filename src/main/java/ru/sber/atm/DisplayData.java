@@ -10,7 +10,7 @@ public class DisplayData {
     ProcessingServer processingServer=new ProcessingServer();
 
     public void GetBalance(){
-        System.out.println("На Вашем счете: "+processingServer.getAccountBalance()+" руб.");
+        System.out.println("На Вашем счете: "+processingServer.getAccountBalance()+ " руб.");
     }
 
 

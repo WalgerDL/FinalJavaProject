@@ -15,8 +15,8 @@ public class KeyBoard {
 
     //todo: данные из UserID для передачи на TransferData
 
-    KeyBoard keyBoard = new KeyBoard();
-    //UserID userID=new UserID();
+  //  KeyBoard keyBoard = new KeyBoard();
+
     PANofCard paNofCard = new PANofCard();
     Password password = new Password();
 

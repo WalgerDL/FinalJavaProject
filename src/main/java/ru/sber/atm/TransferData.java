@@ -7,7 +7,7 @@ import ru.sber.user.Password;
 
 @Getter
 @Setter
-public class TransferData {
+public class TransferData {/*
     //todo:сделать поля для запроса из ClientId для передачи данных из KeyBoard на сервер после верификации (или сделать еще один класс для отправки или получения из/на серевер)
 
     TransferData transferData=new TransferData();
@@ -26,6 +26,6 @@ public class TransferData {
         else {
             System.out.println("Неправильно введён PIN!");
         }
-    }
+    }*/
 
 }

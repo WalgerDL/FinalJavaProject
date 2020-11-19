@@ -2,21 +2,20 @@ package ru.sber.processingServer;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.sber.atm.TransferData;
+import ru.sber.atm.ClientID;
 import ru.sber.user.PANofCard;
 import ru.sber.user.Password;
-
-import java.util.HashMap;
 
 
 @Getter
 @Setter
 public class ProcessingServer {      //Типа процесснговый сервер
 
-    ProcessingServer processingServer=new ProcessingServer();
-    TransferData transferData=new TransferData();
+    //ProcessingServer processingServer=new ProcessingServer();
+    //TransferData transferData=new TransferData();
     PANofCard paNofCard=new PANofCard();
     Password password=new Password();
+    ClientID clientID=new ClientID();
 
     private final String CARD0="4276000011110777";
     private final String CARD1="5469000022220888";
@@ -30,15 +29,17 @@ public class ProcessingServer {      //Типа процесснговый се�
     private final String PWD3="8520";
     private final String PWDn="0000";
 
-    private int randomBalance = 100;//(int) (Math.random()*150000);
+    private int randomBalance = (int) (Math.random()*150000);
 
-    private int accountBalance;
+    private int accountBalance=randomBalance;
+
+
 
 //    private String inputCard=userID.getNumberCard();
 //    private String inputExp=userID.getDate();
 //    private String inputPwd=userID.getPwd();
 
-    private String verifiedInputCard=transferData.getVerifiedCard();
+   // private String verifiedInputCard=transferData.getVerifiedCard();
 
 //    private boolean Verification(boolean verification){
 //    HashMap <String, String> verify= new HashMap<>();
@@ -65,19 +66,38 @@ public class ProcessingServer {      //Типа процесснговый се�
 //
 //        return accountBalance;
 //    }
-    private void AccountBalance() {
 
-        HashMap<String,Integer> findBalance= new HashMap<String, Integer>();
-        findBalance.put(CARD0,randomBalance);
-        findBalance.put(CARD1,randomBalance);
-        findBalance.put(CARD2,randomBalance);
-        findBalance.put(CARD3,randomBalance);
-        findBalance.put(CARDn,randomBalance);
+    private boolean verificationData;
 
-        accountBalance=findBalance.get(verifiedInputCard);
+
+
+    private boolean Verification(boolean verificationData){
+        if (paNofCard.getPanCard().equals(CARD0)&password.getPwd().equals(PWD0)) {
+            verificationData = true;
+        } else {
+            verificationData = false;
+        }
+        return verificationData;
+    }
+
+         public int AccountBalance(int accountBalance) {
+             if (verificationData==true) {
+                 accountBalance= randomBalance;
+             } else {
+                 System.out.println("Неправильно введен ПИН!");
+             }
+//
+//        HashMap<String,Integer> findBalance= new HashMap<String, Integer>();
+//        findBalance.put(CARD0,randomBalance);
+//        findBalance.put(CARD1,randomBalance);
+//        findBalance.put(CARD2,randomBalance);
+//        findBalance.put(CARD3,randomBalance);
+//        findBalance.put(CARDn,randomBalance);
+//
+//        accountBalance=findBalance.get(verifiedInputCard);
         //todo:убрать inputCard. Сделать запрос из TransferData, после того, как будет сделано поле
 
-  //  return accountBalance;
+         return randomBalance;//accountBalance;
 }
 
 
@@ -88,7 +108,7 @@ public class ProcessingServer {      //Типа процесснговый се�
 
 
 
-    public ProcessingServer() {
-
-    }
+//    public ProcessingServer() {
+//
+//    }
 }
