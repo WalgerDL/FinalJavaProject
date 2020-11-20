@@ -7,7 +7,7 @@ import lombok.Setter;
 @Setter
 public class Password {
 
-    private String pwd="1244";
+    private String pwd="1254";
 
 
     public Password() {

@@ -67,18 +67,23 @@ public class ProcessingServer {      //Типа процесснговый се�
 //        return accountBalance;
 //    }
 
-    private boolean verificationData;
 
 
 
-    private boolean Verification(boolean verificationData){
+
+    private boolean Verification(boolean verifiiedData){
         if (paNofCard.getPanCard().equals(CARD0)&password.getPwd().equals(PWD0)) {
-            verificationData = true;
+            verifiiedData = true;
+
         } else {
-            verificationData = false;
+            verifiiedData = false;
         }
-        return verificationData;
+        verifiiedData=verificationData;
+        return verificationData; //todo: сделать корректный метод по верификации пин-кода
+
     }
+
+        private boolean verificationData;
 
          public int AccountBalance(int accountBalance) {
              if (verificationData==true) {
@@ -86,7 +91,10 @@ public class ProcessingServer {      //Типа процесснговый се�
              } else {
                  System.out.println("Неправильно введен ПИН!");
              }
-//
+
+
+
+
 //        HashMap<String,Integer> findBalance= new HashMap<String, Integer>();
 //        findBalance.put(CARD0,randomBalance);
 //        findBalance.put(CARD1,randomBalance);
