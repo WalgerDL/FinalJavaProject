@@ -1,5 +1,6 @@
 package ru.sber.processingServer;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import ru.sber.atm.ClientID;
@@ -9,10 +10,12 @@ import ru.sber.user.Password;
 
 @Getter
 @Setter
-public class ProcessingServer {      //Типа процесснговый сервер
+@AllArgsConstructor
+public class ProcessingServer {//Типа процесснговый сервер
 
-    //ProcessingServer processingServer=new ProcessingServer();
-    //TransferData transferData=new TransferData();
+
+
+
     PANofCard paNofCard=new PANofCard();
     Password password=new Password();
     ClientID clientID=new ClientID();
@@ -29,10 +32,72 @@ public class ProcessingServer {      //Типа процесснговый се�
     private final String PWD3="8520";
     private final String PWDn="0000";
 
+    String verifiedPin=password.getPwd();
+    boolean matchesPin = verifiedPin.matches(PWD0);
+    String verifiedCard=paNofCard.getPanCard();
+    boolean matchesCard = verifiedCard.matches(CARD0);
+
+    //private static int balance;
+    private  boolean verification=matchesCard&matchesPin;
+
+
+
     private int randomBalance = (int) (Math.random()*150000);
 
-    private int accountBalance=randomBalance;
+//    private int accountBalance;
+//
+//        private void AccountBalance(){
+//
+//        if (matchesPin&matchesCard == true) {
+//            accountBalance = (int) (Math.random()*150000);
+//        }
+//        else {
+//            accountBalance=0;
+//        }
+//
+//            //return accountBalance;
+//        }
+//
+//
 
+//    }
+//
+//    public ProcessingServer(int accountBalance) {
+//        this.accountBalance = accountBalance;
+//        if (verificationData==true) {
+//            accountBalance= randomBalance;
+//        } else {
+//            accountBalance=0;//System.out.println("Неправильно введен ПИН!");
+//        }
+//    }
+
+   // private boolean verificationData;
+
+
+//    private void Verification(){
+//        if ((paNofCard.getPanCard().equals(CARD0))&&(password.getPwd()==PWD0)) {
+//            verificationData = true;
+//
+//        } else {
+//            verificationData = false;
+//        }
+//
+//        //return verifiiedData; //todo: сделать корректный метод по верификации пин-кода
+//
+//    }
+
+    public ProcessingServer() {
+
+    }
+
+
+//    public void setAccountBalance( accountBalance) {
+//        this.accountBalance = accountBalance;
+//    }
+
+
+    //ProcessingServer processingServer=new ProcessingServer();
+    //TransferData transferData=new TransferData();
 
 
 //    private String inputCard=userID.getNumberCard();
@@ -70,27 +135,13 @@ public class ProcessingServer {      //Типа процесснговый се�
 
 
 
-
-    private boolean Verification(boolean verifiiedData){
-        if (paNofCard.getPanCard().equals(CARD0)&password.getPwd().equals(PWD0)) {
-            verifiiedData = true;
-
-        } else {
-            verifiiedData = false;
-        }
-        verifiiedData=verificationData;
-        return verificationData; //todo: сделать корректный метод по верификации пин-кода
-
-    }
-
-        private boolean verificationData;
-
-         public int AccountBalance(int accountBalance) {
-             if (verificationData==true) {
-                 accountBalance= randomBalance;
-             } else {
-                 System.out.println("Неправильно введен ПИН!");
-             }
+//    private int AccountBalance() {
+//        int randomBalance = (int) (Math.random()*150000);
+//             if (verificationData==true) {
+//                 accountBalance= randomBalance;
+//             } else {
+//                 accountBalance=0;//System.out.println("Неправильно введен ПИН!");
+//             }
 
 
 
@@ -105,7 +156,7 @@ public class ProcessingServer {      //Типа процесснговый се�
 //        accountBalance=findBalance.get(verifiedInputCard);
         //todo:убрать inputCard. Сделать запрос из TransferData, после того, как будет сделано поле
 
-         return randomBalance;//accountBalance;
+        // return randomBalance;//accountBalance;
 }
 
 
@@ -119,4 +170,4 @@ public class ProcessingServer {      //Типа процесснговый се�
 //    public ProcessingServer() {
 //
 //    }
-}
+

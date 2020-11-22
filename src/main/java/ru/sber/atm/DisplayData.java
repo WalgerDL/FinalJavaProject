@@ -10,7 +10,13 @@ public class DisplayData {
     ProcessingServer processingServer=new ProcessingServer();
 
     public void GetBalance(){
-        System.out.println("На Вашем счете: "+processingServer.getAccountBalance()+ " руб.");
+        //System.out.println("На Вашем счете: " + processingServer.getAccountBalance()+ " руб.");
+        if(processingServer.isVerification()==true){
+            System.out.println("На Вашем счете: " + processingServer.getRandomBalance()+ " руб.");
+        }
+        else{
+            System.out.println("Неправильно введён ПИН");
+        }
     }
 
 
