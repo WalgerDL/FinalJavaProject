@@ -2,22 +2,16 @@ package ru.sber.atm;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.sber.processingServer.ProcessingServer;
-import ru.sber.user.PANofCard;
-import ru.sber.user.Password;
-
-
-import java.util.HashMap;
 
 @Getter
 @Setter
-public class ClientID {
+public class ClientID {  // КЛАСС БУДЕТ УДАЛЁН
 
 
     //ClientID clientID=new ClientID();
     //ProcessingServer processingServer=new ProcessingServer();
-    PANofCard paNofCard=new PANofCard();
-    Password password=new Password();
+//    PANofCard paNofCard=new PANofCard();
+//    Password password=new Password();
 
 //    private String inputCard=paNofCard.getPanCard();
 //    private String inputPwd=password.getPwd();
