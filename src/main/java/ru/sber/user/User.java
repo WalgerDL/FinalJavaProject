@@ -8,9 +8,9 @@ import ru.sber.atm.App;
 @NoArgsConstructor
 public class User {
 
-    private String pan;
-    private String pin;
-    private String expDate;
+    private String pan="4276000011110777";
+    private String pin="1234";
+    private String expDate="01/23";
 
     public User(String pan, String pin, String expDate) {
         this.pan = pan;

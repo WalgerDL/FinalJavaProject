@@ -36,4 +36,5 @@ public class AccountsList {
         return accCurrency.substring(5, 8);
     }
 
+
 }

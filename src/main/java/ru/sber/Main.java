@@ -1,16 +1,18 @@
 package ru.sber;
 
 
-import ru.sber.processingServer.AccountsList;
 import ru.sber.processingServer.CurrencyData;
+import ru.sber.processingServer.SecretData;
+import ru.sber.user.User;
 
 public class Main {
 
 
    public static void main(String[] args) {
+       User user=new User();
+       SecretData secretData=new SecretData();
        CurrencyData currencyData=new CurrencyData();
-       AccountsList accountsList=new AccountsList();
-       System.out.println(currencyData.getCurrency());
 
-    }
+       System.out.println(currencyData.ValueCurrency());
+   }
 }

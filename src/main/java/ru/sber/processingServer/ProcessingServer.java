@@ -5,11 +5,62 @@ import lombok.Getter;
 import lombok.Setter;
 
 
+
+
 @Getter
 @Setter
 @AllArgsConstructor
-public class ProcessingServer {//Типа процесснговый сервер
+public class ProcessingServer {
+
+
+
+
+//        Spin = SecretData_Pin;
+//    }
+//    String[] Spin;
+//    public String[] SecretData_Pin = new String[SecretData.values().length];
+//    {
+//        for(int i=0; i<SecretData.values().length; i++)
+//            SecretData_Pin[i]=SecretData.values()[i].getPin();
+//    }
 //
+//    public static final String[] SecretData_ExpDate = new String[SecretData.values().length];
+//    static{
+//        for(int i=0; i<SecretData.values().length; i++)
+//            SecretData_ExpDate[i]=SecretData.values()[i].getExpDate();
+//    }
+//
+//    public Object verification(){
+//        User user=new User();
+//        HashMap<String,Object> secretList=new HashMap<>();
+//        secretList.put("4276000011110777",PINandEXPDATE1);
+//        secretList.put("5469000022220888",PINandEXPDATE2);
+//        secretList.put("4279000033330999",PINandEXPDATE3);
+//        secretList.put("2202000044440666",PINandEXPDATE4);
+//        secretList.put("0000000000000000",PINandEXPDATEn);
+//
+//        String key=user.getPan();
+//
+//        return String.valueOf(key);
+//    }
+//    public String extractSecretPin() {
+//
+//        String[] secretPinAndExpDate = (String[]) verification();
+//
+//        String secretPin = secretPinAndExpDate[1];
+//
+//        return secretPin;
+//    }
+//    public String extractSecretExpDate() {
+//
+//        String[] secretPinAndExpDate = (String[]) verification();
+//
+//        String secretExpDate = secretPinAndExpDate[2];
+//
+//        return secretExpDate;
+//    }
+
+
 //
 //
 //
