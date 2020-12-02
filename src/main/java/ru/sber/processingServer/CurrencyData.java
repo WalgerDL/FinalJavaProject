@@ -17,7 +17,7 @@ public class CurrencyData {
     public Currency ValueCurrency (){
         AccountsList accountsList=new AccountsList();
         String rusCodeCurrency=accountsList.getAccCurrency();
-        //Currency currency;
+
         Currency currency = null;
         if (rusCodeCurrency.equals("810")) {
             currency = Currency.getInstance("RUB");
