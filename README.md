@@ -9,21 +9,22 @@
 Классы:
 
 user package:
-Клиент(UserID)
-Номер карты(PANofCard)
-Срок действия(ExpDate)
-Пин-код(Password)
+Клиент(User)
+
 
 atm package:
-Средство ввода(KeyBoard)
-Проверка данных(ClientID)
-Передача+запрос данных сервер(TransferData) // придётся разделить?
-Поиск данных на сервере(FindData)
-Получение данных и вывод на экран(DisplayData) // придётся разделить?
+Интерфейс расширения (interface App)
+Банкомат (ATM)
+Проверка карты (VerifyingInputParams)
+
+
+
 
 processingServer package:
-Сервер(ProcessingServer) // enum?
-
+Сервер для выдачи баланса счета карты(ProcessingServer)
+Пеерчисления валют (enum Currency)
+Привязка карт к счетам(AccountList)
+      
 
 
 

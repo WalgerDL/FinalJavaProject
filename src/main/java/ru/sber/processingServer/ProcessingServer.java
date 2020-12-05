@@ -1,4 +1,19 @@
 package ru.sber.processingServer;
 
-public enum ProcessingServer {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+
+
+
+@Getter
+@Setter
+@AllArgsConstructor
+public class ProcessingServer {
+
+
+
+
 }
+
