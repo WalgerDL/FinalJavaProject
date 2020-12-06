@@ -1,10 +1,7 @@
 package ru.sber.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-
-@AllArgsConstructor
-@Getter
+//@AllArgsConstructor
+//@Getter
 
 public enum OptionsUsers {
     USER1("4276000011110777","1234","01/23"),
@@ -16,4 +13,21 @@ public enum OptionsUsers {
     private String pinOption;
     private String expDateOption;
 
+    public String getPanOption() {
+        return panOption;
+    }
+
+    public String getPinOption() {
+        return pinOption;
+    }
+
+    public String getExpDateOption() {
+        return expDateOption;
+    }
+
+    OptionsUsers(String panOption, String pinOption, String expDateOption) {
+        this.panOption = panOption;
+        this.pinOption = pinOption;
+        this.expDateOption = expDateOption;
+    }
 }

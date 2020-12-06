@@ -14,6 +14,14 @@ public class AccountsList {
 
     User user = new User();
 
+    public String getAccCurrency() {
+        return accCurrency;
+    }
+
+    public AccountsList(String accCurrency) {
+        this.accCurrency = accCurrency;
+    }
+
     public AccountsList() {
 
     }

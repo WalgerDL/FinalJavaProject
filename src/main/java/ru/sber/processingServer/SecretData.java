@@ -11,7 +11,8 @@ import java.util.HashMap;
 @AllArgsConstructor
 public class SecretData {
 
-    private User user=new User();
+    //private User user=new User();
+    User user=new User();
 
     public SecretData() {
 
