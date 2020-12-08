@@ -2,10 +2,7 @@ package ru.sber.atm;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.sber.processingServer.CurrencyData;
-import ru.sber.processingServer.InvalidFormatCardException;
-import ru.sber.processingServer.ProcessingServer;
-import ru.sber.processingServer.SecretData;
+import ru.sber.processingServer.*;
 
 import java.util.Currency;
 
@@ -17,10 +14,13 @@ public class ATM implements App{
         ProcessingServer processingServer=new ProcessingServer();
         CurrencyData currencyData=new CurrencyData();
 
+    public ATM() throws InvalidCurrencyException {
+    }
+
 
     @Override
     public String getBalance (String pan, String pin, String expDate) throws InvalidExpDateException,
-            InvalidCardException, IncorrectPinException, InvalidFormatCardException {
+            InvalidCardException, IncorrectPinException, InvalidFormatCardException, InvalidCurrencyException {
 
         verificationInputParams();
         currency();
@@ -45,7 +45,7 @@ public class ATM implements App{
         }else return true;
     }
 
-    private Currency currency() {
+    private Currency currency() throws InvalidCurrencyException {
         CurrencyData currencyData=new CurrencyData();
         Currency currency;
         return currency=currencyData.valueCurrency();

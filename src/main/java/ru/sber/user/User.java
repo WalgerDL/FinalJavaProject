@@ -6,6 +6,7 @@ import ru.sber.atm.App;
 import ru.sber.atm.IncorrectPinException;
 import ru.sber.atm.InvalidCardException;
 import ru.sber.atm.InvalidExpDateException;
+import ru.sber.processingServer.InvalidCurrencyException;
 import ru.sber.processingServer.InvalidFormatCardException;
 
 @Getter
@@ -26,7 +27,8 @@ public class User {
         this.expDate = expDate;
     }
 
-    public String getBalance(App atm) throws IncorrectPinException, InvalidCardException, InvalidExpDateException, InvalidFormatCardException {
+    public String getBalance(App atm) throws IncorrectPinException, InvalidCardException, InvalidExpDateException,
+            InvalidFormatCardException, InvalidCurrencyException {
         return atm.getBalance(pan,pin,expDate);
 
     }

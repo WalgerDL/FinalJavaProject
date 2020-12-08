@@ -18,18 +18,26 @@ public class AccountsList {
         return accCurrency;
     }
 
-    public AccountsList(String accCurrency) {
+    public AccountsList(String accCurrency) throws InvalidCurrencyException {
         this.accCurrency = accCurrency;
     }
 
-    public AccountsList() {
+    public AccountsList() throws InvalidCurrencyException {
 
     }
 
 
-     private String accCurrency=AccountCurrencyCode();
+     private String accCurrency;
 
-    public String AccountCurrencyCode() {
+    {
+        try {
+            accCurrency = AccountCurrencyCode();
+        } catch (InvalidCurrencyException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String AccountCurrencyCode() throws InvalidCurrencyException {
         HashMap<String, String> CardConfirmAccount = new HashMap<>();
 
         CardConfirmAccount.put("4276000011110777", "40817810123456789810");
@@ -42,7 +50,9 @@ public class AccountsList {
         String accCurrency = CardConfirmAccount.get(key);
 
         return accCurrency.substring(5, 8);
+
+
+    }
     }
 
 
-}

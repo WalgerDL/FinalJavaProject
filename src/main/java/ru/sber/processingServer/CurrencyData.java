@@ -12,7 +12,7 @@ public class CurrencyData {
      AccountsList accountsList=new AccountsList();
     Currency currency=valueCurrency();
 
-    public CurrencyData(AccountsList accountsList, Currency currency) {
+    public CurrencyData(AccountsList accountsList, Currency currency) throws InvalidCurrencyException {
         this.accountsList = accountsList;
         this.currency = currency;
     }
@@ -25,11 +25,11 @@ public class CurrencyData {
         return currency;
     }
 
-    public CurrencyData() {
+    public CurrencyData() throws InvalidCurrencyException {
         this.currency = currency;
     }
 
-    public Currency valueCurrency () {
+    public Currency valueCurrency () throws InvalidCurrencyException {
         AccountsList accountsList=new AccountsList();
         String rusCodeCurrency=accountsList.getAccCurrency();
 
