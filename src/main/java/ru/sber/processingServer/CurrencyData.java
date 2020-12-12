@@ -8,32 +8,23 @@ import java.util.Currency;
 @Getter
 @Setter
 
-public class CurrencyData {
-     AccountsList accountsList=new AccountsList();
-    Currency currency=valueCurrency();
+public class CurrencyData <T extends AccountsList>{
 
-    public CurrencyData(AccountsList accountsList, Currency currency) throws InvalidCurrencyException {
+    T accountsList= (T) new AccountsList<T>();
+
+    public CurrencyData(T accountsList){
         this.accountsList = accountsList;
-        this.currency = currency;
     }
 
-    public AccountsList getAccountsList() {
-        return accountsList;
+    public CurrencyData() {
+
     }
 
-    public Currency getCurrency() {
-        return currency;
-    }
+    public Currency valueCurrency(Currency currency) {
+        T accountsList= (T) new AccountsList<T>();
 
-    public CurrencyData() throws InvalidCurrencyException {
-        this.currency = currency;
-    }
+        String rusCodeCurrency=accountsList.accountCurrencyCode();
 
-    public Currency valueCurrency () throws InvalidCurrencyException {
-        AccountsList accountsList=new AccountsList();
-        String rusCodeCurrency=accountsList.getAccCurrency();
-
-        Currency currency = null;
         if (rusCodeCurrency.equals("810")) {
             currency = Currency.getInstance("RUB");
         }

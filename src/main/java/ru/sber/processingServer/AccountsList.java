@@ -10,34 +10,27 @@ import java.util.HashMap;
 @Getter
 @Setter
 @AllArgsConstructor
-public class AccountsList {
+public class AccountsList <T> {
 
-    User user = new User();
+    private User user = new User();
 
     public String getAccCurrency() {
         return accCurrency;
     }
 
-    public AccountsList(String accCurrency) throws InvalidCurrencyException {
+    public AccountsList(String accCurrency){
         this.accCurrency = accCurrency;
     }
 
-    public AccountsList() throws InvalidCurrencyException {
+    public AccountsList() {
 
     }
 
 
      private String accCurrency;
 
-    {
-        try {
-            accCurrency = AccountCurrencyCode();
-        } catch (InvalidCurrencyException e) {
-            e.printStackTrace();
-        }
-    }
 
-    public String AccountCurrencyCode() throws InvalidCurrencyException {
+    public String accountCurrencyCode(){
         HashMap<String, String> CardConfirmAccount = new HashMap<>();
 
         CardConfirmAccount.put("4276000011110777", "40817810123456789810");

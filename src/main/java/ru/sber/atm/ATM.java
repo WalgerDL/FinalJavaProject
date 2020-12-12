@@ -13,14 +13,15 @@ public class ATM implements App{
         SecretData secretData=new SecretData();
         ProcessingServer processingServer=new ProcessingServer();
         CurrencyData currencyData=new CurrencyData();
+    private Currency currency;
 
-    public ATM() throws InvalidCurrencyException {
+    public ATM() {
     }
 
 
     @Override
     public String getBalance (String pan, String pin, String expDate) throws InvalidExpDateException,
-            InvalidCardException, IncorrectPinException, InvalidFormatCardException, InvalidCurrencyException {
+            InvalidCardException, IncorrectPinException, InvalidFormatCardException {
 
         verificationInputParams();
         currency();
@@ -36,25 +37,23 @@ public class ATM implements App{
     public boolean verificationInputParams() throws InvalidFormatCardException, InvalidCardException,
             IncorrectPinException, InvalidExpDateException {
 
-        if (secretData.VerifyingCard()==false) {
+        if (!secretData.verifyingCard()) {
             throw new InvalidCardException("Карта недействительна");
-        }if (secretData.verifyingPin()==false) {
+        }if (!secretData.verifyingPin()) {
             throw new IncorrectPinException("Неправильно ввден ПИН");
-        }if (secretData.verifyingExpDate()==false) {
+        }if (!secretData.verifyingExpDate()) {
             throw new InvalidExpDateException("Неверный срок дкействия карты");
         }else return true;
     }
 
-    private Currency currency() throws InvalidCurrencyException {
+    private Currency currency() {
         CurrencyData currencyData=new CurrencyData();
-        Currency currency;
-        return currency=currencyData.valueCurrency();
+        return new CurrencyData().valueCurrency(currency);
     }
 
     private String requestBalance(){
         ProcessingServer processingServer=new ProcessingServer();
-        String requestBalance;
-        return requestBalance=processingServer.getAmount();
+        return new ProcessingServer().getAmount();
     }
 
 

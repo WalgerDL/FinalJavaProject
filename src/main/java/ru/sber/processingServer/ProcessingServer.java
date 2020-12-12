@@ -5,9 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+
 @Getter
 @Setter
-public class ProcessingServer <T> {
+public class ProcessingServer {
 
 
     private String amount= String.format("%.2f",random());
@@ -15,6 +16,7 @@ public class ProcessingServer <T> {
     public ProcessingServer(String amount) {
         this.amount = amount;
     }
+
 
 
     public ProcessingServer() {

@@ -1,5 +1,6 @@
 package ru.sber.user;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import ru.sber.atm.App;
@@ -8,7 +9,7 @@ import ru.sber.atm.InvalidCardException;
 import ru.sber.atm.InvalidExpDateException;
 import ru.sber.processingServer.InvalidCurrencyException;
 import ru.sber.processingServer.InvalidFormatCardException;
-
+@Data
 @Getter
 @Setter
 public class User {

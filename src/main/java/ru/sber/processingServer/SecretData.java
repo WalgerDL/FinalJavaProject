@@ -18,7 +18,7 @@ public class SecretData {
 
     }
 
-    public boolean VerifyingCard () throws InvalidFormatCardException {
+    public boolean verifyingCard () throws InvalidFormatCardException {
         boolean formatCard;
         if (user.getPan().matches("^[0-9]{16}$")) {
             formatCard=true;
