@@ -11,13 +11,14 @@ import java.util.HashMap;
 @AllArgsConstructor
 public class SecretData {
 
-    private User user=new User();
+    //private User user=new User();
+    User user=new User();
 
     public SecretData() {
 
     }
 
-    public boolean VerifyingCard () throws InvalidFormatCardException {
+    public boolean verifyingCard () throws InvalidFormatCardException {
         boolean formatCard;
         if (user.getPan().matches("^[0-9]{16}$")) {
             formatCard=true;

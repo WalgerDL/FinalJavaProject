@@ -10,18 +10,27 @@ import java.util.HashMap;
 @Getter
 @Setter
 @AllArgsConstructor
-public class AccountsList {
+public class AccountsList <T> {
 
-    User user = new User();
+    private User user = new User();
+
+    public String getAccCurrency() {
+        return accCurrency;
+    }
+
+    public AccountsList(String accCurrency){
+        this.accCurrency = accCurrency;
+    }
 
     public AccountsList() {
 
     }
 
 
-     private String accCurrency=AccountCurrencyCode();
+     private String accCurrency;
 
-    public String AccountCurrencyCode() {
+
+    public String accountCurrencyCode(){
         HashMap<String, String> CardConfirmAccount = new HashMap<>();
 
         CardConfirmAccount.put("4276000011110777", "40817810123456789810");
@@ -34,7 +43,9 @@ public class AccountsList {
         String accCurrency = CardConfirmAccount.get(key);
 
         return accCurrency.substring(5, 8);
+
+
+    }
     }
 
 
-}

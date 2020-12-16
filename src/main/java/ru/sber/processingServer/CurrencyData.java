@@ -1,24 +1,30 @@
 package ru.sber.processingServer;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Currency;
 
 @Getter
+@Setter
 
-public class CurrencyData {
-     AccountsList accountsList=new AccountsList();
-    Currency currency=ValueCurrency();
+public class CurrencyData <T extends AccountsList>{
 
-    public CurrencyData() {
-        this.currency = currency;
+    T accountsList= (T) new AccountsList<T>();
+
+    public CurrencyData(T accountsList){
+        this.accountsList = accountsList;
     }
 
-    public Currency ValueCurrency (){
-        AccountsList accountsList=new AccountsList();
-        String rusCodeCurrency=accountsList.getAccCurrency();
+    public CurrencyData() {
 
-        Currency currency = null;
+    }
+
+    public Currency valueCurrency(Currency currency) {
+        T accountsList= (T) new AccountsList<T>();
+
+        String rusCodeCurrency=accountsList.accountCurrencyCode();
+
         if (rusCodeCurrency.equals("810")) {
             currency = Currency.getInstance("RUB");
         }
@@ -28,19 +34,9 @@ public class CurrencyData {
         if (rusCodeCurrency.equals("978")) {
             currency = Currency.getInstance("EUR");
         }
-         else
-             try {
-                 throw new InvalidCurrencyException("Неподдерживаемая валюта");
-                } catch (InvalidCurrencyException e) {
-                 e.printStackTrace();
-             }
 
-             return currency;
+            return currency;
 
     }
-
-
-
-
 
 }

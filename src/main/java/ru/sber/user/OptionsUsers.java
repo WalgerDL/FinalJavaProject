@@ -1,9 +1,9 @@
 package ru.sber.user;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 
 public enum OptionsUsers {
@@ -16,4 +16,10 @@ public enum OptionsUsers {
     private String pinOption;
     private String expDateOption;
 
+
+    OptionsUsers(String panOption, String pinOption, String expDateOption) {
+        this.panOption = panOption;
+        this.pinOption = pinOption;
+        this.expDateOption = expDateOption;
+    }
 }

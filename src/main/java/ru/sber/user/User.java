@@ -1,16 +1,26 @@
 package ru.sber.user;
 
+import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Setter;
 import ru.sber.atm.App;
-
+import ru.sber.atm.IncorrectPinException;
+import ru.sber.atm.InvalidCardException;
+import ru.sber.atm.InvalidExpDateException;
+import ru.sber.processingServer.InvalidCurrencyException;
+import ru.sber.processingServer.InvalidFormatCardException;
+@Data
 @Getter
-@NoArgsConstructor
+@Setter
 public class User {
 
-    private String pan="4276000011110777";
-    private String pin="1234";
-    private String expDate="01/23";
+    private String pan="5469000022220888";
+    private String pin="9876";
+    private String expDate="02/22";
+
+    public User() {
+
+    }
 
     public User(String pan, String pin, String expDate) {
         this.pan = pan;
@@ -18,8 +28,10 @@ public class User {
         this.expDate = expDate;
     }
 
-    public String getBalance(App atm){
-      return atm.getBalance(pan,pin,expDate);
+    public String getBalance(App atm) throws IncorrectPinException, InvalidCardException, InvalidExpDateException,
+            InvalidFormatCardException, InvalidCurrencyException {
+        return atm.getBalance(pan,pin,expDate);
 
     }
+
 }
