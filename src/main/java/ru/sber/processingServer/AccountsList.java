@@ -2,6 +2,7 @@ package ru.sber.processingServer;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.sber.user.User;
 
@@ -10,6 +11,7 @@ import java.util.HashMap;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class AccountsList <T> {
 
     private User user = new User();
@@ -22,12 +24,7 @@ public class AccountsList <T> {
         this.accCurrency = accCurrency;
     }
 
-    public AccountsList() {
-
-    }
-
-
-     private String accCurrency;
+    private String accCurrency;
 
 
     public String accountCurrencyCode(){

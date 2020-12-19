@@ -1,27 +1,22 @@
 package ru.sber.processingServer;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProcessingServer {
 
 
     private String amount= String.format("%.2f",random());
 
-    public ProcessingServer(String amount) {
-        this.amount = amount;
-    }
-
-
-
-    public ProcessingServer() {
-
-    }
 
     public BigDecimal random (){
 

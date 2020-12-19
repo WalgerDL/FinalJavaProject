@@ -21,10 +21,10 @@ import java.util.function.Predicate;
 @AllArgsConstructor
 public class ATM implements App{
 
-        SecretData secretData=new SecretData();
-        ProcessingServer processingServer=new ProcessingServer();
-        CurrencyData currencyData=new CurrencyData();
-    private Currency currency;
+        private SecretData secretData=new SecretData();
+        private ProcessingServer processingServer=new ProcessingServer();
+        private CurrencyData currencyData=new CurrencyData();
+        private Currency currency;
 
 
 
