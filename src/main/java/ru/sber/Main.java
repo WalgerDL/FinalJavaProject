@@ -1,22 +1,28 @@
 package ru.sber;
 
 
+import lombok.*;
 import ru.sber.atm.ATM;
 import ru.sber.atm.IncorrectPinException;
-import ru.sber.atm.InvalidCardException;
 import ru.sber.atm.InvalidExpDateException;
-import ru.sber.processingServer.InvalidCurrencyException;
 import ru.sber.processingServer.InvalidFormatCardException;
 
+import java.time.LocalDate;
+
+@AllArgsConstructor
+@Getter
+@Setter
+@Data
 public class Main {
 
 
     public static void main(String[] args)
-            throws IncorrectPinException, InvalidCardException, InvalidExpDateException, InvalidFormatCardException, InvalidCurrencyException {
+            throws IncorrectPinException,InvalidExpDateException, InvalidFormatCardException {
 
         ATM atm = new ATM();
-        if (atm.verificationInputParams()) {
-            System.out.println(atm.getBalance("5469000022220888","9876","02/22"));
+
+        if (atm.verificationOfInputParams()) {
+            System.out.println(atm.getBalance("5469000022220888","9876",LocalDate.of(2022,02,28)));
         }
     }
 }

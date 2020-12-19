@@ -13,6 +13,9 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <sonar.projectKey>WalgerDL_FinalJavaProject</sonar.projectKey>
+    <sonar.organization>walgerdl</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <dependencies>
@@ -55,6 +58,11 @@
             <groupId>org.javamoney</groupId>
             <artifactId>moneta</artifactId>
             <version>0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
         </dependency>
 
     </dependencies>
