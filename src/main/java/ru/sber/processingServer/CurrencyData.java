@@ -14,6 +14,8 @@ public class CurrencyData <T extends AccountsList>{
 
     T accountsList= (T) new AccountsList<T>();
 
+
+
     public CurrencyData(T accountsList){
         this.accountsList = accountsList;
     }
