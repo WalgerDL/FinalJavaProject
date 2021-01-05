@@ -19,6 +19,7 @@ import java.util.function.Predicate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class ATM implements App{
 
         private SecretData secretData=new SecretData();
