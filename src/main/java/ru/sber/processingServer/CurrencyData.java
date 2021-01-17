@@ -1,24 +1,25 @@
 package ru.sber.processingServer;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Currency;
 
 @Getter
 @Setter
+@NoArgsConstructor
 
 public class CurrencyData <T extends AccountsList>{
 
     T accountsList= (T) new AccountsList<T>();
 
+
+
     public CurrencyData(T accountsList){
         this.accountsList = accountsList;
     }
 
-    public CurrencyData() {
-
-    }
 
     public Currency valueCurrency(Currency currency) {
         T accountsList= (T) new AccountsList<T>();
