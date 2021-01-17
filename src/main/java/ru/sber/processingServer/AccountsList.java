@@ -1,20 +1,24 @@
 package ru.sber.processingServer;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.sber.user.User;
+import ru.sber.user.UserContextConfiguration;
 
 import java.util.HashMap;
 
 @Getter
 @Setter
-@AllArgsConstructor
+
 @NoArgsConstructor
 public class AccountsList <T> {
-
-    private User user = new User();
+//    AnnotationConfigApplicationContext annoConfigAppContext=
+//            new AnnotationConfigApplicationContext(UserContextConfiguration.class);
+//
+//
+//    private User user.properties = annoConfigAppContext.getBean("user.properties", User.class);
 
     public String getAccCurrency() {
         return accCurrency;
@@ -28,6 +32,13 @@ public class AccountsList <T> {
 
 
     public String accountCurrencyCode(){
+
+        AnnotationConfigApplicationContext annoConfigAppContext=
+                new AnnotationConfigApplicationContext(UserContextConfiguration.class);
+
+
+        User user = annoConfigAppContext.getBean("user.properties", User.class);
+
         HashMap<String, String> CardConfirmAccount = new HashMap<>();
 
         CardConfirmAccount.put("4276000011110777", "40817810123456789810");
@@ -41,8 +52,9 @@ public class AccountsList <T> {
 
         return accCurrency.substring(5, 8);
 
-
+       // annoConfigAppContext.close();
     }
+
     }
 
 

@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import ru.sber.processingServer.CurrencyData;
 import ru.sber.processingServer.InvalidFormatCardException;
 import ru.sber.processingServer.ProcessingServer;
@@ -19,13 +22,16 @@ import java.util.function.Predicate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Component
+@Log
+@Slf4j
 public class ATM implements App{
 
         private SecretData secretData=new SecretData();
         private ProcessingServer processingServer=new ProcessingServer();
         private CurrencyData currencyData=new CurrencyData();
         private Currency currency;
+        //@Autowired
 
 
 
