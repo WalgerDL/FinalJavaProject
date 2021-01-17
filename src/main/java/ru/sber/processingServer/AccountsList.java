@@ -52,7 +52,7 @@ public class AccountsList <T> {
 
         return accCurrency.substring(5, 8);
 
-       // annoConfigAppContext.close();
+        //annoConfigAppContext.close();
     }
 
     }

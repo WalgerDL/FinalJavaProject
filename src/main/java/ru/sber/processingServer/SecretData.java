@@ -29,7 +29,7 @@ public class SecretData {
                 new AnnotationConfigApplicationContext(UserContextConfiguration.class);
 
 
-        User user = annoConfigAppContext.getBean("user.properties", User.class);
+        User user = annoConfigAppContext.getBean("user", User.class);
 
         boolean formatCard;
 
@@ -47,7 +47,7 @@ public class SecretData {
                 new AnnotationConfigApplicationContext(UserContextConfiguration.class);
 
 
-        User user = annoConfigAppContext.getBean("user.properties", User.class);
+        User user = annoConfigAppContext.getBean("user", User.class);
 
         HashMap<String, String> secretPin = new HashMap<>();
 
@@ -77,7 +77,7 @@ public class SecretData {
                 new AnnotationConfigApplicationContext(UserContextConfiguration.class);
 
 
-        User user = annoConfigAppContext.getBean("user.properties", User.class);
+        User user = annoConfigAppContext.getBean("user", User.class);
 
         HashMap<String, String> secretExpDate = new HashMap<>();
         secretExpDate.put("4276000011110777", "01/23");
@@ -102,7 +102,7 @@ public class SecretData {
                 new AnnotationConfigApplicationContext(UserContextConfiguration.class);
 
 
-        User user = annoConfigAppContext.getBean("user.properties", User.class);
+        User user = annoConfigAppContext.getBean("user", User.class);
 
         boolean extractSecretExpDate;
         long expDateToEpoch=user.getExpDate().toEpochDay();
