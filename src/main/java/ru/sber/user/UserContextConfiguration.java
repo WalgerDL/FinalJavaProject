@@ -1,20 +1,17 @@
 package ru.sber.user;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 
-@Configuration
-@ComponentScan("ru.sber.user.properties")
-@PropertySource("classpath:user.properties")
-
+//@ComponentScan("java.ru.sber.user")
+//@PropertySource("classpath:user.properties")
+//@Configuration
 public class UserContextConfiguration {
+//    User user = new User();
+//    @Bean
+//    public User userBean(){
+//        return new User();
+//    }
 
-    @Bean
-    public User userBean(){
-        return new User();
-    }
+
 
 
 

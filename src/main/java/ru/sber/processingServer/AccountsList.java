@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.sber.user.User;
-import ru.sber.user.UserContextConfiguration;
 
 import java.util.HashMap;
 
@@ -19,7 +18,9 @@ public class AccountsList <T> {
 //
 //
 //    private User user.properties = annoConfigAppContext.getBean("user.properties", User.class);
-
+AnnotationConfigApplicationContext context=
+        new AnnotationConfigApplicationContext(User.class);
+    private User user=context.getBean(User.class);
     public String getAccCurrency() {
         return accCurrency;
     }
@@ -33,11 +34,7 @@ public class AccountsList <T> {
 
     public String accountCurrencyCode(){
 
-        AnnotationConfigApplicationContext annoConfigAppContext=
-                new AnnotationConfigApplicationContext(UserContextConfiguration.class);
 
-
-        User user = annoConfigAppContext.getBean("user.properties", User.class);
 
         HashMap<String, String> CardConfirmAccount = new HashMap<>();
 
