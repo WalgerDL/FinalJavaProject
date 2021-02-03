@@ -13,11 +13,7 @@ import java.util.HashMap;
 
 @NoArgsConstructor
 public class AccountsList <T> {
-//    AnnotationConfigApplicationContext annoConfigAppContext=
-//            new AnnotationConfigApplicationContext(UserContextConfiguration.class);
-//
-//
-//    private User user.properties = annoConfigAppContext.getBean("user.properties", User.class);
+
 AnnotationConfigApplicationContext context=
         new AnnotationConfigApplicationContext(User.class);
     private User user=context.getBean(User.class);
@@ -49,7 +45,6 @@ AnnotationConfigApplicationContext context=
 
         return accCurrency.substring(5, 8);
 
-        //annoConfigAppContext.close();
     }
 
     }
