@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.sber.atm.App;
 import ru.sber.atm.IncorrectPinException;
@@ -21,15 +21,15 @@ import java.time.format.DateTimeFormatter;
 @NoArgsConstructor
 @Component
 public class User {
-
+    @Autowired
     private User user;
-    @NotNull
-    @Value("${user.pan}")
-    private String pan;//="5469000022220888";
-    @Value("${user.pin}")
-    private String pin;//="9876";
-    @Value("${user.expDate}")
-    private LocalDate expDate;//=LocalDate.of(2022,02,28);
+   @NotNull
+    //@Value("${user.pan}")
+    private String pan="5469000022220888";
+    //@Value("${user.pin}")
+    private String pin="9876";
+    //@Value("${user.expDate}")
+    private LocalDate expDate=LocalDate.of(2022,02,28);
 
 
 

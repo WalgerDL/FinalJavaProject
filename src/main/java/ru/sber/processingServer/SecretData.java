@@ -7,7 +7,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import ru.sber.atm.IncorrectPinException;
 import ru.sber.atm.InvalidExpDateException;
 import ru.sber.user.User;
-import ru.sber.user.UserContextConfiguration;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -19,17 +18,19 @@ import java.util.HashMap;
 
 public class SecretData {
 
-    //private User user.properties=new User();
+    AnnotationConfigApplicationContext context=
+            new AnnotationConfigApplicationContext(User.class);
+    private User user=context.getBean(User.class);
+
+    public SecretData() {
+
+    }
 
 
     @NotNull
     public boolean isVerifyingCard() throws InvalidFormatCardException {
 
-        AnnotationConfigApplicationContext annoConfigAppContext=
-                new AnnotationConfigApplicationContext(UserContextConfiguration.class);
 
-
-        User user = annoConfigAppContext.getBean("user.properties", User.class);
 
         boolean formatCard;
 
@@ -43,11 +44,7 @@ public class SecretData {
     @NotNull
     public boolean isVerifyingPin() throws IncorrectPinException {
 
-        AnnotationConfigApplicationContext annoConfigAppContext=
-                new AnnotationConfigApplicationContext(UserContextConfiguration.class);
 
-
-        User user = annoConfigAppContext.getBean("user.properties", User.class);
 
         HashMap<String, String> secretPin = new HashMap<>();
 
@@ -73,11 +70,7 @@ public class SecretData {
 
     public final boolean isVerifyingExpDateToString() throws InvalidExpDateException {
 
-        AnnotationConfigApplicationContext annoConfigAppContext=
-                new AnnotationConfigApplicationContext(UserContextConfiguration.class);
 
-
-        User user = annoConfigAppContext.getBean("user.properties", User.class);
 
         HashMap<String, String> secretExpDate = new HashMap<>();
         secretExpDate.put("4276000011110777", "01/23");
@@ -98,11 +91,10 @@ public class SecretData {
 
     public final boolean isVerifyingExpDate() throws InvalidExpDateException {
 
-        AnnotationConfigApplicationContext annoConfigAppContext=
-                new AnnotationConfigApplicationContext(UserContextConfiguration.class);
 
 
-        User user = annoConfigAppContext.getBean("user.properties", User.class);
+
+
 
         boolean extractSecretExpDate;
         long expDateToEpoch=user.getExpDate().toEpochDay();

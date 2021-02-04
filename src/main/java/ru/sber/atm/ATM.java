@@ -23,8 +23,7 @@ import java.util.function.Predicate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
-@Log
-@Slf4j
+
 public class ATM implements App{
 
         private SecretData secretData=new SecretData();
