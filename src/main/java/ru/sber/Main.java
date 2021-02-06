@@ -19,7 +19,7 @@ import java.time.LocalDate;
 @Setter
 @Data
 @Log
-//@Slf4j
+
 public class Main {
 
 
@@ -30,10 +30,10 @@ public class Main {
                 new AnnotationConfigApplicationContext(ATM.class);
         ATM atm=context.getBean(ATM.class);
 
-       // ATM atm = new ATM();
+       // Integer
 
         if (atm.verificationOfInputParams()) {
-          // System.out.println(atm.getBalance("5469000022220888","9876", LocalDate.of(2022,02,28)));
+
            log.info(String.format(atm.getBalance("5469000022220888","9876", LocalDate.of(2022,02,28))));
 
         }
