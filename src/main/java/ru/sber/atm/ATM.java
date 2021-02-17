@@ -29,8 +29,19 @@ public class ATM implements App{
         private ProcessingServer processingServer=new ProcessingServer();
         private CurrencyData currencyData=new CurrencyData();
         private Currency currency;
+        private String balanceInScreen;
 
-
+    {
+        try {
+            balanceInScreen = getBalance("5469000022220888","9876", LocalDate.of(2022,02,28));
+        } catch (InvalidExpDateException e) {
+            e.printStackTrace();
+        } catch (IncorrectPinException e) {
+            e.printStackTrace();
+        } catch (InvalidFormatCardException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     @Override

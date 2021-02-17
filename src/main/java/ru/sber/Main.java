@@ -6,13 +6,14 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.java.Log;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import ru.sber.atm.ATM;
-import ru.sber.atm.IncorrectPinException;
-import ru.sber.atm.InvalidExpDateException;
-import ru.sber.processingServer.InvalidFormatCardException;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
-import java.time.LocalDate;
+import java.util.Arrays;
 
 @AllArgsConstructor
 @Getter
@@ -20,23 +21,20 @@ import java.time.LocalDate;
 @Data
 @Log
 
+@Configuration
+@EnableAutoConfiguration
+@ComponentScan
+@SpringBootApplication
 public class Main {
 
+    public static void main(String[] args) {
 
-    public static void main(String[] args)
-            throws IncorrectPinException,InvalidExpDateException, InvalidFormatCardException {
+        ApplicationContext ctx = SpringApplication.run(Main.class, args);
 
-        AnnotationConfigApplicationContext context=
-                new AnnotationConfigApplicationContext(ATM.class);
-        ATM atm=context.getBean(ATM.class);
-
-       // Integer
-
-        if (atm.verificationOfInputParams()) {
-
-           log.info(String.format(atm.getBalance("5469000022220888","9876", LocalDate.of(2022,02,28))));
-
+        String[] beanNames = ctx.getBeanDefinitionNames();
+        Arrays.sort(beanNames);
+        for (String beanName : beanNames) {
+            System.out.println(beanName);
         }
-
     }
 }
