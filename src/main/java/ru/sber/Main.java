@@ -6,37 +6,47 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.java.Log;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import ru.sber.atm.ATM;
-import ru.sber.atm.IncorrectPinException;
-import ru.sber.atm.InvalidExpDateException;
-import ru.sber.processingServer.InvalidFormatCardException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import ru.sber.service.AccountsService;
 
-import java.time.LocalDate;
+import java.util.Arrays;
 
 @AllArgsConstructor
 @Getter
 @Setter
 @Data
 @Log
-//@Slf4j
+
+@Configuration
+@EnableAutoConfiguration
+@ComponentScan
+@SpringBootApplication
 public class Main {
 
+   @Autowired
+    private AccountsService accountsService;
 
-    public static void main(String[] args)
-            throws IncorrectPinException,InvalidExpDateException, InvalidFormatCardException {
+    public Main() {}
 
-        AnnotationConfigApplicationContext context=
-                new AnnotationConfigApplicationContext(ATM.class);
-        ATM atm=context.getBean(ATM.class);
 
-       // ATM atm = new ATM();
+        public static void main (String[]args){
 
-        if (atm.verificationOfInputParams()) {
-          // System.out.println(atm.getBalance("5469000022220888","9876", LocalDate.of(2022,02,28)));
-           log.info(String.format(atm.getBalance("5469000022220888","9876", LocalDate.of(2022,02,28))));
+            ApplicationContext ctx = SpringApplication.run(Main.class, args);
+
+            String[] beanNames = ctx.getBeanDefinitionNames();
+            Arrays.sort(beanNames);
+            for (String beanName : beanNames) {
+                log.info(beanName);
+            }
 
         }
 
+
     }
-}
+

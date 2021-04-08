@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.extern.java.Log;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import ru.sber.processingServer.CurrencyData;
 import ru.sber.processingServer.InvalidFormatCardException;
@@ -18,11 +16,12 @@ import java.util.Currency;
 import java.util.List;
 import java.util.function.Predicate;
 
-@Getter
+
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Component
+@Getter
 
 public class ATM implements App{
 
@@ -30,8 +29,19 @@ public class ATM implements App{
         private ProcessingServer processingServer=new ProcessingServer();
         private CurrencyData currencyData=new CurrencyData();
         private Currency currency;
-        //@Autowired
+        private String balanceInScreen;
 
+    {
+        try {
+            balanceInScreen = getBalance("5469000022220888","9876", LocalDate.of(2022,02,28));
+        } catch (InvalidExpDateException e) {
+            e.printStackTrace();
+        } catch (IncorrectPinException e) {
+            e.printStackTrace();
+        } catch (InvalidFormatCardException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     @Override

@@ -16,7 +16,7 @@ import java.util.HashMap;
 @Getter
 @AllArgsConstructor
 
-public class SecretData {
+public class SecretData implements Verification {
 
     AnnotationConfigApplicationContext context=
             new AnnotationConfigApplicationContext(User.class);
@@ -26,7 +26,7 @@ public class SecretData {
 
     }
 
-
+    @Override
     @NotNull
     public boolean isVerifyingCard() throws InvalidFormatCardException {
 
@@ -40,7 +40,7 @@ public class SecretData {
             throw new InvalidFormatCardException("Неверный формат номера карты");
         return formatCard;
     }
-
+    @Override
     @NotNull
     public boolean isVerifyingPin() throws IncorrectPinException {
 
@@ -67,7 +67,7 @@ public class SecretData {
         // 1-й способ при помощи парсинга в стринг и поиска соответствия в мапе
         // 2-й способ сравнения срока действия с текущей датой
         // какой способ лучше оставить?
-
+    @Override
     public final boolean isVerifyingExpDateToString() throws InvalidExpDateException {
 
 
@@ -88,17 +88,12 @@ public class SecretData {
 
         return extractSecretExpDateToStr;
     }
-
+    @Override
     public final boolean isVerifyingExpDate() throws InvalidExpDateException {
-
-
-
-
-
 
         boolean extractSecretExpDate;
         long expDateToEpoch=user.getExpDate().toEpochDay();
-        long nowDateToEpoch=LocalDate.now().toEpochDay();
+        long nowDateToEpoch= LocalDate.now().toEpochDay();
 
         extractSecretExpDate=expDateToEpoch>nowDateToEpoch;
 

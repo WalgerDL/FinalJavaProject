@@ -24,11 +24,9 @@ public class User {
     @Autowired
     private User user;
    @NotNull
-    //@Value("${user.pan}")
+
     private String pan="5469000022220888";
-    //@Value("${user.pin}")
     private String pin="9876";
-    //@Value("${user.expDate}")
     private LocalDate expDate=LocalDate.of(2022,02,28);
 
 
