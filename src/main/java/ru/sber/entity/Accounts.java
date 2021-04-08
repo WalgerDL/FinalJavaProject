@@ -1,12 +1,15 @@
 package ru.sber.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 import static javax.persistence.CascadeType.*;
-
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -21,8 +24,7 @@ public class Accounts {
         @Column
         private String account_info;
 
-//        @Column
-//        private String client_id;
+
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = ALL)
     @JoinColumn(name = "client_id")
@@ -34,7 +36,6 @@ public class Accounts {
         return "Accounts{" +
                 "id=" + id +
                 ", account_info='" + account_info + '\'' +
-               // ", client_id='" + client_id + '\'' +
                 '}';
     }
 
